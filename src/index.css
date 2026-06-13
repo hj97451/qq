@@ -1,12 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nunito:wght@400;700;900&display=swap');
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-1Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-2ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-3Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-6SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-9Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
 
 :root {
-  --primary: #ff4757;
-  --secondary: #1e90ff;
-  --accent: #ffa502;
-  --background: #f1f2f6;
-  --text: #2f3542;
-  --card-bg: rgba(255, 255, 255, 0.9);
+  --primary: #6B7280;
+  --secondary: #4B5563;
+  --accent: #9CA3AF;
+  --background: #111827; /* Dark mode base */
+  --text: #F3F4F6;
+  --text-muted: #9CA3AF;
+  --card-bg: rgba(31, 41, 55, 0.6); /* Glassmorphism */
+  --card-border: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -16,21 +71,31 @@
 }
 
 body {
-  font-family: 'Jua', 'Nunito', sans-serif;
+  font-family: 'Paperozi', sans-serif;
   background-color: var(--background);
-  background-image: radial-gradient(var(--accent) 2px, transparent 2px), radial-gradient(var(--secondary) 2px, transparent 2px);
-  background-size: 40px 40px;
-  background-position: 0 0, 20px 20px;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(255, 255, 255, 0.03), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.03), transparent 25%);
   color: var(--text);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
+/* Material Symbols Adjustments */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  vertical-align: middle;
+}
+
 .app-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 3rem 2rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -38,7 +103,7 @@ body {
 
 .header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .title-container {
@@ -49,83 +114,105 @@ body {
 }
 
 .title {
-  font-size: 3rem;
-  color: var(--primary);
-  text-shadow: 3px 3px 0 var(--accent), 6px 6px 0 var(--secondary);
-  letter-spacing: 2px;
-  animation: bounce 2s infinite ease-in-out;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: transparent;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  letter-spacing: -1px;
+  animation: float 6s ease-in-out infinite;
+  text-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
 }
 
-@keyframes bounce {
+@keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
 
 .card {
   background: var(--card-bg);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 4px solid var(--text);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+  border: 1px solid var(--card-border);
   margin-bottom: 2rem;
   position: relative;
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.2);
 }
 
 .btn {
-  font-family: 'Jua', sans-serif;
-  background: var(--primary);
+  font-family: 'Paperozi', sans-serif;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   color: white;
-  border: 3px solid var(--text);
-  padding: 0.8rem 1.5rem;
-  font-size: 1.2rem;
-  border-radius: 50px;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 6px 0 var(--text);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .btn:hover {
-  transform: translateY(2px);
-  box-shadow: 0 4px 0 var(--text);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
 }
 
 .btn:active {
-  transform: translateY(6px);
-  box-shadow: 0 0 0 var(--text);
+  transform: translateY(1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .btn-secondary {
-  background: var(--secondary);
+  background: linear-gradient(135deg, var(--secondary), #374151);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.btn-accent {
-  background: var(--accent);
+.btn-secondary:hover {
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
 }
 
 .btn:disabled {
-  background: #ccc;
+  background: #374151;
+  color: #9CA3AF;
   cursor: not-allowed;
-  transform: translateY(6px);
-  box-shadow: 0 0 0 var(--text);
+  transform: none;
+  box-shadow: none;
 }
 
 .input {
-  font-family: 'Jua', sans-serif;
-  border: 3px solid var(--text);
-  padding: 0.8rem;
-  font-size: 1.2rem;
-  border-radius: 10px;
+  font-family: 'Paperozi', sans-serif;
+  background: rgba(17, 24, 39, 0.8);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  padding: 1rem 1.2rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
   width: 100%;
   margin-bottom: 1rem;
+  transition: all 0.3s ease;
 }
 
 .input:focus {
   outline: none;
   border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
 }
 
 /* Modal styles */
@@ -135,30 +222,44 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .modal-content {
-  background: white;
-  padding: 2rem;
-  border-radius: 20px;
-  border: 4px solid var(--text);
+  background: #1F2937;
+  padding: 2.5rem;
+  border-radius: 24px;
+  border: 1px solid var(--card-border);
   width: 90%;
   max-width: 500px;
   max-height: 90vh;
   overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px) scale(0.95); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 /* Slot Machine */
@@ -167,22 +268,22 @@ body {
   justify-content: center;
   align-items: center;
   margin: 2rem 0;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
 .slot {
-  width: 150px;
-  height: 150px;
-  background: white;
-  border: 5px solid var(--text);
-  border-radius: 20px;
+  width: 160px;
+  height: 160px;
+  background: rgba(17, 24, 39, 0.9);
+  border: 2px solid var(--card-border);
+  border-radius: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
-  font-weight: bold;
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.1), 0 10px 0 var(--text);
+  font-size: 2.5rem;
+  font-weight: 800;
+  box-shadow: inset 0 10px 30px rgba(0,0,0,0.5), 0 10px 20px rgba(0,0,0,0.2);
   overflow: hidden;
   position: relative;
 }
@@ -196,49 +297,72 @@ body {
 }
 
 .slot-item {
-  height: 150px;
+  height: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
 .student-list-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
 }
 
 .student-tag {
-  background: var(--background);
-  border: 2px solid var(--text);
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.student-tag:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .delete-btn {
-  background: none;
+  background: rgba(255, 255, 255, 0.05);
   border: none;
   color: var(--primary);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 0;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
 }
 
 .controls-section {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: center;
   margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
 .count-input {
-  width: 80px;
+  width: 100px;
   text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
 }

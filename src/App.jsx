@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Play } from 'lucide-react';
 import { getStudents, getSecretOrder, saveSecretOrder } from './utils/localStorage';
 import StudentManager from './components/StudentManager';
 import SecretModal from './components/SecretModal';
@@ -137,7 +136,7 @@ function App() {
               disabled={isSpinning || students.length === 0}
               style={{fontSize: '1.5rem', padding: '1rem 2rem'}}
             >
-              <Play size={24} /> 뽑기 시작!
+              <span className="material-symbols-outlined" style={{fontSize: '2rem'}}>play_arrow</span> 뽑기 시작!
             </button>
           </div>
         </div>
