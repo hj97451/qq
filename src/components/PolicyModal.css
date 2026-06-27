@@ -1,0 +1,101 @@
+.policy-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease;
+}
+
+.policy-modal-content {
+  background: #1F2937;
+  padding: 0;
+  border-radius: 24px;
+  border: 1px solid var(--card-border);
+  width: 90%;
+  max-width: 600px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.policy-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 1px solid var(--card-border);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.policy-modal-header h2 {
+  font-size: 1.5rem;
+  color: var(--text);
+  margin: 0;
+}
+
+.policy-close-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--text);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.policy-close-btn:hover {
+  background: var(--primary);
+  transform: scale(1.1);
+}
+
+.policy-modal-body {
+  padding: 25px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) transparent;
+}
+
+.policy-modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+.policy-modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.policy-modal-body::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 10px;
+}
+
+.policy-text {
+  color: #D1D5DB;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.policy-text p {
+  margin-bottom: 20px;
+}
+
+.policy-text p:last-child {
+  margin-bottom: 0;
+}
+
+.policy-text strong {
+  color: var(--accent);
+  font-size: 1.1rem;
+}

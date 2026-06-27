@@ -4,6 +4,7 @@ import StudentManager from './components/StudentManager';
 import SecretModal from './components/SecretModal';
 import SlotMachine from './components/SlotMachine';
 import EthicsGate from './components/EthicsGate';
+import Footer from './components/Footer';
 function App() {
   const [students, setStudents] = useState([]);
   const [secretOrder, setSecretOrder] = useState([]);
@@ -156,6 +157,8 @@ function App() {
         {/* Student Manager */}
         <StudentManager students={students} setStudents={setStudents} />
       </main>
+
+      <Footer />
     </div>
   );
 }
