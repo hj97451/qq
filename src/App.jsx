@@ -3,7 +3,7 @@ import { getStudents, getSecretOrder, saveSecretOrder } from './utils/localStora
 import StudentManager from './components/StudentManager';
 import SecretModal from './components/SecretModal';
 import SlotMachine from './components/SlotMachine';
-
+import EthicsGate from './components/EthicsGate';
 function App() {
   const [students, setStudents] = useState([]);
   const [secretOrder, setSecretOrder] = useState([]);
@@ -12,6 +12,7 @@ function App() {
   const [isSpinning, setIsSpinning] = useState(false);
   const [isSecretModalOpen, setIsSecretModalOpen] = useState(false);
   const [spinId, setSpinId] = useState(0);
+  const [hasAgreedEthics, setHasAgreedEthics] = useState(false);
   
   const clickCountRef = useRef(0);
   const clickTimeoutRef = useRef(null);
@@ -95,6 +96,10 @@ function App() {
       setIsSpinning(false);
     }, totalDurationMs);
   };
+
+  if (!hasAgreedEthics) {
+    return <EthicsGate onAgree={() => setHasAgreedEthics(true)} />;
+  }
 
   return (
     <div className="app-container">
